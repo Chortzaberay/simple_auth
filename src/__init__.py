@@ -11,5 +11,10 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test_db.sqlite"
     app.config["SECRET_KEY"] = "secret_key"
 
+    with app.app_context():
+        db.init_app(app)
+        from .routes import auth
+        app.register_blueprint(auth)
+        
     return app
 
