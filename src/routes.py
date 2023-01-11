@@ -1,13 +1,18 @@
-from flask import Blueprint
+from flask import Blueprint, current_app
 from flask import request, flash
 from flask import redirect, url_for
 from flask import render_template
 
 from werkzeug.security import generate_password_hash
 
-from . import db
+from . import db, login_manager
 from .models import User
 auth = Blueprint("auth", __name__)
+
+@login_manager.user_loader
+def load_user(user_id):
+    User.query.filter_by(id=user_id)
+
 
 def get_user_data():
     return{

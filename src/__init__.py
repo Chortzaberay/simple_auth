@@ -13,6 +13,7 @@ def create_app():
 
     with app.app_context():
         db.init_app(app)
+        login_manager.init_app(app)
         from .routes import auth
         app.register_blueprint(auth)
         
