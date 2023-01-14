@@ -16,6 +16,12 @@ def create_app():
         login_manager.init_app(app)
         from .routes import auth
         app.register_blueprint(auth)
+    
+    @app.route("/")
+    @app.route("/index")
+    def index():
+        return {"message": "index"}, 200
+    
         
     return app
 
