@@ -64,6 +64,7 @@ def signup():
 
     return {"message": "accepted"}, 200
 
+
 @auth.route("/profile")
 @login_required
 def profile():
