@@ -4,7 +4,7 @@ class Config():
 
 class DevConfig(Config):
     TESTING = False
-    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@localhost/basic_login"
+    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@localhost:5432/basic_login"
     SECRET_KEY = "secret_key"
     DEBUG = True
 
